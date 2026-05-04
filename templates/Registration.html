@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TAU Fashion Luxury Store - Registration</title>
+    <!-- Link the CSS using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Font Awesome for Icons (Optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pO3rQG8JFRF8c2+C1RTM9V2HyQOYzO7Vd6b20HNzOwPnJpZT+7ab2SZ+KJJwV/jcXrV4HlODUjYsgVl4abOWjw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<img src="{{ url_for('static', filename='images/Blue Modern Fashion Shop Logo - שקוף (2).png') }}"
+     alt="Logo"
+     style="width: 80px; height: auto; margin-bottom: 20px;">
+     <br>
+    <div class="login-container">
+
+        <!-- Brand Title -->
+        <h2></h2>
+
+        <h1 class="login-title">Registration</h1>
+        <p class="login-description">Fill your details</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Registration Form -->
+        <form action="/Registration" method="post">
+            <div class="input-group">
+                <label for="username">User Name: <label>
+                <input type="text" id="username" name="user" class="input-field" placeholder="Enter your username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:<label>
+                <input type="email" id="email" name="mail" class="input-field" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:<label>
+                <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Age:<label>
+                <input type="Date" id="age" name="age" class="input-field" required>
+            </div>
+            <div class="input-group">
+                <label>Gender:</label>
+                 <div class="radio-group" style="display: flex; gap: 15px; align-items: center;">
+                    <label>
+                        <input type="radio" name="gender" value="Male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="Female" required> Female
+                    </label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="faculty">Faculty:</label>
+                <input type="text" id="faculty" name="faculty" class="input-field" placeholder="Enter your faculty" required>
+            </div>
+            <input type="submit" value="Let's Shop!" class="button important-button">
+        </form>
+    </div>
+
+
+
+{% if show_popup1 %}
+    <div id="popup5" class="overlay" style="opacity:1; visibility: visible;">
+        <div class="popup">
+            <a class="close" href="{{ url_for('Registration') }}">&times;</a>
+            <h2>This Email is already exist!</h2>
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+</html>

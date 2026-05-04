@@ -1,0 +1,445 @@
+/* ייבוא פונטים */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* משתני CSS לעקביות */
+:root {
+    --primary-color: #000000; /* שחור */
+    --accent-color: #D3D3D3; /* אפור בהיר */
+    --background-color: #ffffff; /* לבן */
+    --text-color: #333333; /* אפור כהה */
+    --input-background: #f5f5f5; /* אפור בהיר */
+    --border-color: #e0e0e0; /* גבול בהיר */
+    --error-color: #e74c3c; /* אדום לשגיאות */
+}
+
+/* סגנונות גלובליים */
+* {
+    box-sizing: 70px 90px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/240_F_437689271_MNn0FNnk69uUydet38GZ79tTPGoRQFkc.jpg"); /* אופציונלי: תמונת רקע */
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+/* Login Container - ניתן למחוק אם אינו בשימוש */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95); /* מעט שקוף להעמקת עומק */
+    padding: 70px 90px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.login-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand Logo */
+.brand-logo {
+    width: 120px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Login Title */
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+/* Login Description */
+.login-description {
+    font-size: 1em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    font-size: 1em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1 px solid var(--border-color);
+    border-radius: 5 px;
+    background-color: var(--input-background);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* זוהר זהב */
+}
+
+/* Submit Buttons */
+.button {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.important-button {
+    background-color: black;
+    color: var(--background-color);
+    margin-bottom: 30px;
+}
+
+.important-button:hover {
+    background-color: #c9a836; /* זהב כהה יותר */
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: black ;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.secondary-button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+/* Error Message */
+.error-message {
+    color: var(--error-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* עיצוב רשת המוצרים */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 עמודות */
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+    background-color: var(--background-color);
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    background-color: var(--accent-color);
+}
+
+.product-image {
+    width: 100%; /* למלא את רוחב המיכל */
+    height: 80%; /* התאמת הגובה באופן אוטומטי */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; /* מרכז את התמונה */
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-name {
+    display: block;
+    font-size: 1.5 em;
+    margin: 10px 0 5px 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.product-quantity-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+
+    color: var(--primary-color);
+}
+
+.quantity-select {
+    padding: 3px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    background-color: var(--input-background);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quantity-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5); /* זוהר זהב */
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
+    }
+
+    .product-image {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 עמודות */
+    }
+
+    .product-image {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* עמודה אחת */
+    }
+
+    .product-image {
+        max-width: 150px;
+    }
+
+    .button {
+        padding: 10px 0;
+        font-size: 0.9em;
+    }
+}
+
+/* עיצוב למלבן בראש הדף (הוספת פריט חדש) */
+.add-garment-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto; /* מרכז את החלק בדף */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* כותרת החלק */
+.add-garment-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+/* טופס */
+.add-garment-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* רווחים בין השדות */
+}
+
+/* שדות הטופס */
+.add-garment-container input[type="file"],
+.add-garment-container input[type="text"],
+.add-garment-container input[type="number"],
+.add-garment-container button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* רדיו בוטנים */
+.add-garment-container input[type="radio"] {
+    margin: 0 5px;
+}
+
+/* עיצוב טבלת המלאי */.add-garment-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto; /* מרכז את החלק בדף */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative; /* מבטיח מיקום ללא הפרעה */
+    z-index: 10; /* מבטיח שהחלק יופיע מעל אלמנטים אחרים */
+}
+
+/* לוודא שזה תמיד מופיע למעלה */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* כותרת החלק */
+.add-garment-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: var(--primary-color);
+}
+
+/* טופס */
+.add-garment-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* רווחים בין השדות */
+}
+
+/* שדות הטופס */
+.add-garment-container input[type="file"],
+.add-garment-container input[type="text"],
+.add-garment-container input[type="number"],
+.add-garment-container button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 1px; /* הוספת רווח בין השדות */
+}
+
+/* רדיו בוטנים */
+.add-garment-container input[type="radio"] {
+    margin: 0 5px;
+}
+
+.banner-container {
+    width: 100%;
+    margin-bottom: 10px; /* רווח מתחת לבאנר */
+    text-align: center; /* מרכז את התמונה */
+}
+
+.banner-image {
+    width: 100%; /* ממלא את כל הרוחב של העמוד */
+    height: auto; /* שומר על יחס התמונה */
+    max-height: 300px; /* מגביל את גובה התמונה אם היא גדולה מדי */
+    object-fit: cover; /* חותך חלקים מיותרים של התמונה */
+    border-radius: 10px; /* פינות מעוגלות (לא חובה) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל לתמונה */
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333; /* צבע רקע */
+    color: white; /* צבע טקסט */
+    text-align: center;
+    padding: 7px 0;
+    z-index: 1000; /* מבטיח שהכותרת תישאר מעל האלמנטים האחרים */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל לתחתית הכותרת */
+    font-family: 'Playfair Display', serif;
+}
+
+/* רווח למטה כדי למנוע חפיפה עם התוכן */
+.banner-container {
+    margin-top: 30px; /* התאמת הרווח בהתאם לגובה הכותרת */
+}
+
+/* ---------- Popup (Overlay & Popup Box) ---------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  z-index: 9999; /* שיהיה מעל הכל */
+}
+
+/* כאשר ה-URL מסתיים ב-#popup1 (או עוד מזהים), האלמנט עם id="popup1" הופך לנראה */
+.overlay:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  width: 300px;
+  min-height: 100px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+}
+
+.close:hover {
+  color: red;
+}

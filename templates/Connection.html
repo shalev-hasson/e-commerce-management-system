@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- Link the CSS using Flask's url_for -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/Blue Modern Fashion Shop Logo - שקוף (2).png') }}"
+     alt="Logo"
+     style="width: 80px; height: auto; margin-bottom: 20px;">
+     <br>
+    <div class="login-container">
+        <!-- Added Title at the Top -->
+        <h2 class="login-title">TAU Fashion</h2>
+
+        <h1 class="login-title">Luxury Store</h1>
+        <p class="login-description" style="font-size: 1.5em">Login</p>
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+
+
+        <form action="/" method="post">
+            <table>
+                <tr>
+                    <td><label class="login-description" for="email">Email:</label></td>
+                    <td>
+                        <input type="email" name="mail" class="input-field" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="login-description" for="password">Password:</label></td>
+                    <td>
+                        <input type="password" name="password" class="input-field" required>
+                    </td>
+                </tr>
+            </table>
+            <!-- Added 'button' class for consistent styling -->
+            <input type="submit" value="Entrance" class="button important-button" style="margin-top: 40px;">
+        </form>
+
+        <form action="/Registration" method="get">
+            <input type="submit" value="New Friend?" class="button secondary-button">
+        </form>
+    </div>
+
+{% if show_popup6 %}
+    <div id="popup6" class="overlay" style="opacity:1; visibility: visible;">
+        <div class="popup">
+            <a class="close" href="{{ url_for('Connection') }}">&times;</a>
+            <h2>Wrong details! Please fix it or sign up.</h2>
+        </div>
+    </div>
+    {% endif %}
+
+    </body>
+</html>

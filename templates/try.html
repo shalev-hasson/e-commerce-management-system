@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luxury Clothing Store</title>
+     <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <form action='/Home_page.html' method="POST">
+            <table class="product-table">
+                {% for i in range(garment|length) %}
+                    {% if i % 4 == 0 %}
+                        <tr>
+                    {% endif %}
+                        <td>
+                            <img src="{{ imagepath }}" alt="Image" class="product-image"><br>
+                            <label class="product-name">{{ name }}</label><br>
+                            <label class="product-price">Price: {{ price }} $</label><br>
+                            <label class="quantity-label">Quantity:</label>
+                            <select name="Quantity_{{ i }}" class="quantity-select">
+                                {% for q in range(quantity + 1) %}
+                                    <option value="{{ q }}">{{ q }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    {% if (i + 1) % 4 == 0 or i == garment|length - 1 %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <br>
+            <input type="submit" value="Buy" class="buy-button">
+        </form>
+    </div>
+</body>
+</html>

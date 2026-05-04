@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>Tau Fashion Luxury Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <div class="banner-container">
+    <img src="{{ url_for('static', filename='images/5B60A1C4-7131-4BBE-A393-3D30FB39C5EE.JPG') }}" alt="Banner Image" class="banner-image">
+</div>
+      <div class="header"style="font-size: 0.6em;">
+        <h1>Tau Fashion - Luxury Store</h1>
+    </div>
+
+    <img src="{{ url_for('static', filename='images/Blue Modern Fashion Shop Logo - שקוף (2).png') }}"
+     alt="Logo"
+     style="width: 80px; height: auto; margin-bottom: 20px;">
+     <br>
+    <h1 class="login-description" style="font-size: 2em"> Our Store </h1>
+
+
+
+</head>
+<body>
+    <form action="/Home_page" method="POST">
+        <div class="products-grid">
+            {% for garment in garments %}
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename=garment.imagepath) }}" alt="{{ garment.name }}" class="product-image" onerror="this.src='/static/images/default.jpg';" loading="lazy">
+                    <div class="product-info">
+                        <span class="product-name">{{ garment.name }}</span>
+                        <span class="product-quantity-label">Price: {{ garment.price }} $</span>
+                        <label class="product-quantity-label" for="quantity_{{ loop.index0 }}">Quantity:</label>
+                        <select name="Quantity_{{ loop.index0 }}" id="quantity_{{ loop.index0 }}" class="quantity-select">
+                            {% for q in range(garment.quantity + 1) %}
+                                <option value="{{ q }}">{{ q }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+         <button type="submit"  class="button important-button"> Buy </button>
+
+        </form>
+
+{% if session.get('is_manager') %}
+    <form action="{{ url_for('manager_page') }}" method="get">
+       <button type="submit"  class="button secondary-button"  >Back to Manager Page</button>
+    </form>
+{% endif %}
+
+       <form action="{{ url_for('logout') }}" method="post">
+    <button type="submit" class="button secondary-button"  >Logout</button>
+
+    </form>
+
+
+
+ {% if show_popup %}
+    <div id="popup1" class="overlay" style="opacity:1; visibility: visible;">
+        <div class="popup">
+            <a class="close" href="{{ url_for('Home_page') }}">&times;</a>
+           <h2>Thank you {{session.get('username')}} for your purchase!</h2>
+            <p>Your Order is on its way!</p>
+        </div>
+    </div>
+    {% endif %}
+
+
+ {% if show_popup5 %}
+    <div id="popup4" class="overlay" style="opacity:1; visibility: visible;">
+        <div class="popup">
+            <a class="close" href="{{ url_for('Home_page') }}">&times;</a>
+            <h2>You have successfully registered!</h2>
+            <p>welcome to our store</p>
+
+        </div>
+    </div>
+    {% endif %}
+
+
+
+</body>
+</html>
