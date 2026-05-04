@@ -9,8 +9,8 @@ Session(app)
 
 mydb= mysql.connector.connect(
     host= "localhost",
-    user="root",
-    password="root",
+    user="your_mysql_user",
+    password="your_mysql_password",
     database= "TAUFashion_45"
 )
 cursor= mydb.cursor()
