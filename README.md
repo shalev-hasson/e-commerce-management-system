@@ -112,3 +112,5 @@ This project was developed as an academic web application and demonstrates pract
 - Role-based permissions
 - Inventory and transaction management
 - Data-driven operational workflows
+
+Database credentials in `main.py` are placeholders and should be replaced with the user's local MySQL configuration before running the project.
